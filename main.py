@@ -9,7 +9,6 @@ from flask import Flask, request, render_template_string, render_template
 import os
 import paramiko
 import socket
-app = Flask(__name__)
 
 ################################
 ##### to do ####################
@@ -27,10 +26,7 @@ app = Flask(__name__)
 ## could elaborate on this and map it out in pandas
 # background jpg loads blurry sometimes
 
-
-################################
-##### HTML Stuff ###############
-################################
+app = Flask(__name__)
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
