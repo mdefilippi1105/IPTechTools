@@ -25,6 +25,7 @@ import socket
 # sort netstat results to show vulnerable ports
 ## could elaborate on this and map it out in pandas
 # background jpg loads blurry sometimes
+#test
 
 app = Flask(__name__)
 
