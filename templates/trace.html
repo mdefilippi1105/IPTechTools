@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Traceroute browser tool</title>
+    <script src="{{ url_for('static', filename='js/spinner.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/page.css') }}">
+</head>
+
+<body>
+<h2> Trace Route </h2>
+<i> Please note that there could be a delay during this process. </i>
+<br><br>
+
+{#Enter an IP address > show spinner on button click#}
+<form method="POST" class = "trace-input" onsubmit="showSpinner(); return true;">
+    Enter IP Address: <input name="ip_lookup" required>
+    {#Tool button class used to style buttons in css#}
+    <button type="submit"  class="tool-button">Lookup</button>
+    {#spinner bar stuff. this creates the spinner div to be defined in css#}
+            <div id = "spinner" class= "loader"></div>
+
+</form>
+
+{# this is separate from the form otherwise the spinner will show right away#}
+
+
+{#This creates the container to store the data#}
+<pre id="trace-output"></pre>
+
+
+{% if result %}
+    <script>
+    //this takes the server value result and converts to json
+    // "safe" tells server to leave json alone. stores this in a variable called output
+    const output = {{ result | tojson | safe }};
+    //verifies if function exists
+    if(typeof renderTraceOutput === 'function') {
+        //format the output
+        renderTraceOutput(output)
+    } else {
+        //find element id - then fill output text exactly as-is plaintext
+        document.getElementById('trace-output').textContent = output;
+    }
+    </script>
+{%  endif  %}
+
+</body>
+</html>

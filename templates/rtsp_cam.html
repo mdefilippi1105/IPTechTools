@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <script src="{{ url_for('static', filename='js/spinner.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/page.css') }}">
+  <title>RTSP</title>
+</head>
+<body>
+<h2> RTSP </h2>
+<br>
+<form method="POST" action="/rtsp_client/" onsubmit="showSpinner(); return true;">
+    <label>Cam IP</label><br>
+    <input name ="rtsp-ip" required> <br><br>
+
+    <label>Username</label><br>
+    <input name ="rtsp-username" required> <br><br>
+
+    <label>Password</label><br>
+    <input name="rtsp-password" type="password" required><br><br>
+
+    <input type="submit" value=" Connect and Run ">
+</form>
+{% if result %}
+    <pre>{{ result }}</pre>
+{% endif %}
+</body>
+</html>

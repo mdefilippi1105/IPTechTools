@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>SSH Client Tool</title>
+    <script src="{{ url_for('static', filename='js/spinner.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<h2> SSH </h2>
+<br>
+<body>
+<form method="POST" action="/ssh/" onsubmit="showSpinner(); return true;">
+    <label>SSH Target</label><br>
+    <input name ="target" required> <br><br>
+
+        <label>Port</label><br>
+    <input name ="port" required> <br><br>
+
+    <label>Username</label><br>
+    <input name ="username" required> <br><br>
+
+    <label>Password</label><br>
+    <input name="password" type="password" required><br><br>
+
+    <label>Arguments</label><br>
+    <i>This is used for specific switches eg "df"</i><br>
+
+    <input name="argument" required><br><br>
+
+    <input type="submit" value=" Connect and Run ">
+</form>
+
+</body>
+
+<!---------- spinner bar stuff --------->
+<div class= "spinner" style="display: none;">
+    <div class="loader"></div>
+    <p>Loading..</p>
+</div>
+
+
+{% if result %}
+    <pre>{{ result }}</pre>
+{% endif %}
+</body>
+</html>

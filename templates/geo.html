@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Geolocator</title>
+    <script src="{{ url_for('static', filename='js/spinner.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/page.css') }}">
+    <script src="{{ url_for('static', filename='js/render_json.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+<h2> Geolocator </h2>
+
+<form method="POST" class = "geo-output" onsubmit="showSpinner(); return true">
+    Enter IP Address: <input name="ip_lookup" required>
+     {#Tool button class used to style buttons in css#}
+    <button type="submit"  class="tool-button">Lookup</button>
+    {#spinner bar stuff. this creates the spinner div to be defined in css#}
+    <div id = "spinner" class= "loader"></div>
+</form>
+
+<pre id="geo-display"></pre>
+
+{% if result %}
+
+<script>
+    {#const jsonData = {{  result | tojson | safe }};#}
+{# this returns the result as a string other wise it will show up like a regular JSON#}
+    const resultText = {{ result | tojson | safe }}
+    renderJsonGeo(resultText);
+</script>
+{%  endif  %}

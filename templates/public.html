@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Public IP</title>
+     <script src="{{ url_for('static', filename='js/spinner.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/page.css') }}">
+</head>
+
+<body>
+<h2> Get My Public IP </h2>
+<i> Find your Public IP Address by clicking this button.  </i>
+<br><br>
+
+{#Enter an IP address > show spinner on button click#}
+<form method="POST" class = "public-input" action="/public" onsubmit="showSpinner(); return true;">
+    <button type="submit"   class="tool-button">Grab IP</button>
+    {#spinner bar stuff. this creates the spinner div to be defined in css#}
+        <div id = "spinner" class= "loader"></div>
+</form>
+
+<pre
+id="public-output">
+
+
+{% if result %}
+{{ result }}
+{%  endif  %}
+
+</pre>
+
+</body>
+</html>

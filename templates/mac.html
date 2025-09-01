@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>MAC Lookup</title>
+    <script src="{{ url_for('static', filename='js/render_json.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/spinner.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/page.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+<h2> MAC Lookup </h2>
+<h4>
+MAC address or a substring (min 6 chars).
+<br><br>
+Valid mac address are:
+</h4>
+<h5>
+00:00:00<br>00-00-00<br>00.00.00<br>000000
+<br>00:00:00:00:00:00<br>00-00-00-00-00-00<br>00.00.00.00.00.00
+<br>
+</h5>
+
+<form method="POST" onsubmit="showSpinner(); return true;">
+    Enter MAC Address: <input name="mac_lookup" >
+    <button type="submit"  class="tool-button">Lookup</button>
+    {#spinner bar stuff. this creates the spinner div to be defined in css#}
+        <div id = "spinner" class= "loader"></div>
+</form>
+
+<pre id ="mac-display"></pre>
+
+{% if result %}
+<script>
+{# this returns the result as a string other wise it will show up like a regular JSON#}
+    const resultText = {{ result | tojson | safe }}
+    const output = JSON.parse(resultText)
+    {#renderJsonMac(resultText);#}
+    loopResult(output)
+</script>
+{% endif %}
+

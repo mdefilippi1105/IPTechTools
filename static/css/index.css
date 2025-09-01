@@ -1,0 +1,45 @@
+
+h2 {
+    color: white;
+    font-family: monospace;
+}
+
+h4{
+    color: white;
+    font-family: monospace;
+}
+
+body {
+    background-image: url("/static/img/background.jpg");
+
+    max-width: 100%;
+    height: auto;
+    font-family: monospace;
+    padding: 20px;
+}
+
+.tool-button {
+    font-family: monospace;
+    font-size: 12px;
+    border: azure;
+    border-radius: 15px;
+    background-color: #0e475e;
+    text-decoration-color: white;
+    cursor: pointer;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    transition: transform 150ms ease, background 200ms ease;
+}
+.tool-button:hover {
+    background: #2ec7ea
+}
+.tool-button:focus {
+    outline: 2px solid #99c7ff; outline-offset: 2px;
+}
+.tool-button.flash {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}

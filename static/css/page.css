@@ -1,0 +1,93 @@
+h2 {
+    color: white;
+    font-family: monospace;
+}
+
+h4{
+    color: white;
+    font-family: monospace;
+}
+h5{
+    color: white;
+    font-family: monospace;
+}
+
+i {
+    color: white;
+    font-family: monospace;
+}
+
+form {
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    color: white;
+    width: 150%;
+    gap: 10px
+}
+
+body {
+    background-image: url("/static/img/background.jpg");
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+/*THESE ARE THE OUTPUTS CREATED BY THE COMMANDS RUN ON THE PAGE*/
+#json-display {
+    color:white;
+    font-family: monospace;
+}
+#ping-output {
+    color: white;
+    font-family: monospace;
+}
+#trace-output {
+    color: white;
+    font-family: monospace;
+}
+#geo-display {
+    color: white;
+    font-family: monospace;
+}
+#mac-display {
+    color: white;
+    font-family: monospace;
+}
+#deep-display {
+    color: white;
+    font-family: monospace;
+}
+#public-output {
+    color: white;
+    font-family: monospace;
+}
+#port-output {
+    color: white;
+    font-family: monospace;
+}
+.tool-button {
+    font-size: 15px;
+    border: azure;
+    border-radius: 15px;
+    background-color: #10637c;
+    text-decoration-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    margin: 10px;
+}
+
+.tool-button:hover {
+    background: #2ec7ea
+}
+.tool-button:focus {
+    outline: 2px solid #99c7ff; outline-offset: 2px;
+}
+.tool-button.flash {
+    transform: translateY(-5px) scale(3.03);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease
+}

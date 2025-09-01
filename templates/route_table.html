@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <script src="{{ url_for('static', filename='js/spinner.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/page.css') }}">
+    <title>Port checker</title>
+</head>
+
+<h2> Port check tool </h2>
+<i> Enter a port and a hostname/IP </i>
+<br><br>
+
+
+<form method="POST" action="/route_table" onsubmit="showSpinner();return true;">
+    <input name ="port" type = "number" min="1" max="65535" placeholder ="Port required">
+    <input name="host" placeholder="Host/IP (optional)">
+    <button type ="submit" class="tool-button">Check</button>
+    <div id = "spinner" class= "loader"></div>
+<br>
+<! -- spinner bar stuff -- >
+
+</form>
+
+<!---------- put additional button here ---->
+
+
+<pre
+id="port-output">
+
+{% if result %}
+{{ result }}
+{%  endif  %}
+
+</pre>
+
+</html>

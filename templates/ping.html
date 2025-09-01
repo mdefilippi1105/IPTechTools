@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Ping Tool</title>
+    <script src="{{ url_for('static', filename='js/render_json.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/spinner.js')}}"></script>
+{#        <script src="{{ url_for('static', filename='js/animate_button.js')}}"></script>#}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/page.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+<h2> Ping </h2>
+<i> Please enter an IP address </i>
+<br><br>
+
+{#Enter an IP address > show spinner on button click#}
+<form method="POST" class = 'ping-output' onsubmit="showSpinner(); renderPingOutput(); return true;">
+    Enter IP Address: <input name="ip">
+    {#Tool button class used to style buttons in css#}
+    <button type="submit"  class="tool-button">Lookup</button>
+<!---------- spinner bar stuff --------->   
+<div id = "spinner" class= "loader"></div>
+</form>
+
+<pre id="ping-output"></pre>
+
+{% if result %}
+    <script>
+    const output = '{{ result | replace('\r\n', '\\n') | replace('\n', '\\n') | replace("'", "\\'") }}'
+    renderPingOutput(output)
+    </script>
+{% endif %}
+
+</body>
+</html>

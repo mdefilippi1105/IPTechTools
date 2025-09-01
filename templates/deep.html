@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Deep IP Search</title>
+    <script src="{{ url_for('static', filename='js/render_json.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/spinner.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/page.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+<h2> Deep Search </h2>
+<h4> Enter a <i>public</i> IP Address</h4>
+
+<form method="POST" onsubmit="showSpinner(); return true">
+    Enter IP Address: <input name="ip_deep_lookup">
+    <button type="submit"  class="tool-button">Lookup</button>
+    <div id = "spinner" class="loader"><</div>
+</form>
+
+<pre id="deep-display"> </pre>
+
+{% if result %}
+
+<script>
+{# this returns the result as a string other wise it will show up like a regular JSON#}
+    const resultText = {{ result | tojson | safe }}
+    const output = JSON.parse(resultText)
+    loopDeepResult(output);
+</script>
+{% endif %}
+
+
+
+</body>
+</html>
