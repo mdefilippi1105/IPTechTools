@@ -14,7 +14,7 @@
               this.classList.add('flash');
               // set timeout = the code to run later + how long to wait
               // the browser window, location.href is the full URL
-              setTimeout(() => window.location.href = url, 300);
+              setTimeout(() => window.location.href = url, 500);
               //     this.classList.remove('flash');
               // }, 500);
           });

@@ -11,7 +11,9 @@ h4{
 
 body {
     background-image: url("/static/img/background.jpg");
-
+    position: absolute;
+    top: 10px;
+    left: 16px;
     max-width: 100%;
     height: auto;
     font-family: monospace;
