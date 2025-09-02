@@ -9,6 +9,12 @@ from flask import Flask, request, render_template_string, render_template
 import os
 import paramiko
 import socket
+###################################
+####### to update into site #######
+# cd ~/mysite
+# source ~/venvs/myapp/bin/activate
+# git pull
+####################################
 
 ################################
 ##### to do ####################
