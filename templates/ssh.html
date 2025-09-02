@@ -3,10 +3,11 @@
 <html lang="en">
 <head>
     <title>SSH Client Tool</title>
+    <meta charset="UTF-8">
     <script src="{{ url_for('static', filename='js/spinner.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/page_ssh_and_rtsp.css') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
 <h2> SSH </h2>
 <br>
 <body>
@@ -28,7 +29,7 @@
 
     <input name="argument" required><br><br>
 
-    <input type="submit" value=" Connect and Run ">
+    <button type="submit" class="tool-button">SSH</button>
 </form>
 
 </body>
