@@ -27,7 +27,7 @@ form {
 }
 
 body {
-    background-image: url("/static/img/background.jpg");
+    background-image: url("../img/background.jpg");
     font-family: sans-serif;
     padding: 20px;
 }

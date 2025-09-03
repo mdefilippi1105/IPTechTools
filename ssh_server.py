@@ -4,7 +4,7 @@ import paramiko
 HOST = "0.0.0.0"
 PORT = 2222
 USERNAME = "user"
-PASSWORD = "password"
+PASSWORD = "pass"
 
 #generate a key
 host_key = paramiko.RSAKey.generate(2048)

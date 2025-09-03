@@ -10,7 +10,7 @@ import os
 import paramiko
 import socket
 ###################################
-####### to update into site #######
+# ####### to update into site #######
 # cd ~/mysite
 # source ~/venvs/myapp/bin/activate
 # git pull
@@ -179,27 +179,34 @@ def ssh_client():
     ssh_talk = ""
     if request.method == 'POST':
         try:
+            #grab all the form data and turn into variables
             ssh_target = request.form.get('target') #grab the ssh target
             ssh_port = request.form.get('port')
             ssh_user = request.form.get('username')
             ssh_password = request.form.get('password')
             ssh_argument = request.form.get('ssh_argument')
 
-            client = paramiko.SSHClient() #create the ssh object
-            client.set_missing_host_key_policy(paramiko.AutoAddPolicy()) #this trusts new server fingerprint, auto trust new servers
+            # create the ssh object
+            client = paramiko.SSHClient()
+            # this trusts new server fingerprint, auto trust new servers
+            client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            # initiate connection
             client.connect(f'{ssh_target}', port=int(ssh_port),
-                           username=f'{ssh_user}', password=f'{ssh_password}') #initiate connection
+                           username=f'{ssh_user}', password=f'{ssh_password}')
 
-            stdin, stdout, stderr= client.exec_command(f"{ssh_argument}")# "df" is a particular command, will change these after testing
+            # splits into 2 pipes - in/out
+            stdin, stdout, stderr= client.exec_command(f"{ssh_argument}")
+            print(f"{stdin}, {stdout}, {stderr}")
             stdout.channel.recv_exit_status()
             ssh_output = stdout.read().decode()
+
             ssh_error = stderr.read().decode()
 
-            ssh_talk = ssh_output + ssh_error
-            print(ssh_talk)
+            # ssh_talk = ssh_output + ssh_error
+            # print(ssh_talk)
         except Exception as e:
             print(f"Error: {e}")
-    return render_template('ssh.html', result=ssh_talk)
+    return render_template('ssh.html', result=ssh_output)
 
 #############################
 ###### rtsp client ##########
