@@ -202,11 +202,11 @@ def ssh_client():
 
             ssh_error = stderr.read().decode()
 
-            # ssh_talk = ssh_output + ssh_error
-            # print(ssh_talk)
+            ssh_talk = ssh_output + ssh_error
+            print(ssh_talk)
         except Exception as e:
             print(f"Error: {e}")
-    return render_template('ssh.html', result=ssh_output)
+    return render_template('ssh.html', result=ssh_talk)
 
 #############################
 ###### rtsp client ##########
