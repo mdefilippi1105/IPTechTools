@@ -8,7 +8,16 @@ h4{
     color: white;
     font-family: monospace;
 }
-
+h5{
+    color: white;
+    font-family: monospace;
+    padding-left: 40px;
+    padding-right: 45px;
+}
+img{
+    padding-left: 20px;
+    padding-right: 45px;
+}
 body {
     background-image: url("/static/img/background.jpg");
     position: absolute;
