@@ -65,6 +65,10 @@ body {
     color: white;
     font-family: monospace;
 }
+#latency-output {
+    color: white;
+    font-family: monospace;
+}
 .tool-button {
     font-size: 15px;
     border: azure;

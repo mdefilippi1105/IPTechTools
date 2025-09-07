@@ -31,7 +31,9 @@ import socket
 # sort netstat results to show vulnerable ports
 ## could elaborate on this and map it out in pandas
 # background jpg loads blurry sometimes
-#test
+# add some widgets - weather, clock
+# cache purge button - cloudfare api
+#
 
 app = Flask(__name__)
 
@@ -42,7 +44,7 @@ def index():
 
 @app.route('/ping', methods = ['GET', 'POST'])
 def ping():
-    result = "" #result is blank first
+    result = None #result is blank first
     if request.method =='POST':
         ip = request.form.get('ip')
         if ip:
@@ -256,7 +258,12 @@ def get_public():
     return render_template('public.html', result=public_output)
 
 
-
+@app.route('/latency', methods=['GET','POST'])
+# all the heavy lifting here is being done by javascript
+# see client_ping.js
+def latency_check():
+    result = []
+    return render_template('latency.html', result=result)
 
 
 ####This app is for testing only not linking to the main webpage
