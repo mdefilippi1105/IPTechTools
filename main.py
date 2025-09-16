@@ -33,7 +33,7 @@ import socket
 # background jpg loads blurry sometimes
 # add some widgets - weather, clock
 # cache purge button - cloudfare api
-#
+# test SMTP
 
 app = Flask(__name__)
 
