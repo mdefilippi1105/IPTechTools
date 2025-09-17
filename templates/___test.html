@@ -2,14 +2,18 @@
 
 <html lang="en">
 <head>
-    <title>Latency Tool</title>
+    <title>X-TERM TEST</title>
+    <script src="{{ url_for('static', filename='js/terminal.js')}}"></script>
     <script src="{{ url_for('static', filename='js/client_ping.js')}}"></script>
     <script src="{{ url_for('static', filename='js/spinner.js')}}"></script>
+    <script src="https://unpkg.com/xterm/lib/xterm.js"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='css/page.css') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/xterm/css/xterm.css">
+
 </head>
 <body>
-<h2> Latency Tool </h2>
+<h2> X-TERM TEST </h2>
 <i>Enter an IP address and rec</i>
 
 <form id="latency-form" onsubmit="clientPing(event); return false;">
@@ -18,6 +22,12 @@
     {#spinner bar stuff. this creates the spinner div to be defined in css#}
         <div id = "spinner" class= "loader"></div>
 </form>
+
+<div class = "wrap">
+    <div id = "terminal" aria-label="Terminal">
+</div>
+
+
 
 <pre id ="latency-output"></pre>
 

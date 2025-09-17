@@ -6,6 +6,7 @@ import time
 import cv2
 import requests
 from flask import Flask, request, render_template_string, render_template
+from flask_sock import Sock
 import os
 import paramiko
 import socket
@@ -267,6 +268,9 @@ def latency_check():
 
 
 ####This app is for testing only not linking to the main webpage
+
+sock=Sock(app)
+sock.route('/test')
 @app.route('/test/',methods=['GET', 'POST'])
 def test():
     result = []
