@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{#stop reading my html you piece of shit#}
 <html lang="en">
 <head>
     <title>Contact Me</title>
@@ -11,20 +11,26 @@
     <link rel="stylesheet" href="https://unpkg.com/xterm/css/xterm.css">
 
 </head>
-<body>
+<h3>
 <h2> Contact me </h2>
 <i>Hello Friends!</i>
 
-<form id="latency-form" onsubmit="clientPing(event); return false;">
-    Enter IP Address: <input name="latency-input" >
-    <button type="submit"  class="tool-button">Test Latency</button>
-    {#spinner bar stuff. this creates the spinner div to be defined in css#}
-        <div id = "spinner" class= "loader"></div>
+<h3>
+If you have any questions, please feel free to email me.<br>
+<br>Contact me at fingerprince333@gmail.com.<br>
+<br>Any ideas or bugs encountered would be great to hear about.<br>
+<br>I use this as a way to assist with my day-to-day work.<br>
+<br>If it helps you, let me know!<br>
+
+</h3>
+
+<form >
 </form>
 
-<div class = "wrap">
-    <div id = "terminal" aria-label="Terminal">
+<div class = "wrap"> </div>
+<div id = "terminal" aria-label="Terminal">
 </div>
+
 
 
 
@@ -33,5 +39,7 @@
 {% if result %}
 {{ result }}
 {% endif %}
+
 </body>
+
 </html>

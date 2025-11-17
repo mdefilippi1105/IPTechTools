@@ -22,19 +22,3 @@
         // }
 
 
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-     //for each of all buttons I would like to run a function
-    document.querySelectorAll('button').forEach(button => {
-       button.onclick = function () {
-          document.querySelector('#hello').style.color = button.dataset.color;
-
-
-    document.querySelector('form').onsubmit = function (){
-        const name = document.querySelector('#name').value;
-        alert(`Hello ${name}`);
-    };
-
-});

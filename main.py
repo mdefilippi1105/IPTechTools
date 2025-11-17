@@ -135,9 +135,9 @@ def deep_search():
                 pass
             else:
                 ip = request.form.get('ip_deep_lookup')
-                IP_STACK_API_KEY = str('24265a352dc98765b3905690b8cdf92b')
-                IP_STACK_API_URL = f'https://api.ipstack.com/{ip}?access_key={IP_STACK_API_KEY}'
-                response = requests.get(IP_STACK_API_URL)
+                ip_stack_api_key = str('24265a352dc98765b3905690b8cdf92b')
+                ip_stack_api_url = f'https://api.ipstack.com/{ip}?access_key={ip_stack_api_key}'
+                response = requests.get(ip_stack_api_url)
                 result = response.json()
                 dump = json.dumps(result, indent=4, sort_keys=True)
         except Exception as e:
@@ -239,19 +239,26 @@ def get_public():
     public_output = None
     if request.method == 'POST':
         time.sleep(1)
-
+        real_ip = request.headers.get('CF-Connecting-IP', request.remote_addr)
         public_header = request.headers.get
         public_ip = request.headers.get("X-Forwarded-For",request.remote_addr)
         user_agent = request.headers.get("User-Agent")
 
+        parts = []
+        for item, value in request.headers.items():
+            parts.append(f"{item}: {value}")
+            all_ip_info = "\n".join(parts)
+
+
         #This is for internal inspection
-        public_output = (f"Your current IP address is {public_ip}. "
+        public_output = (f"Your current IP address is {all_ip_info}. "
                          f"\nYour currently captured platform is {user_agent}")
 
         print(f"DEBUG ---> {public_header}")
         print(f"DEBUG ---> {public_ip}")
         print(f"DEBUG ---> {user_agent}")
         print(f"DEBUG ---> {public_output}")
+        print(f"DEBUG ---> {all_ip_info}")
     else:
         ####should come up with something better here
         "Please check your internet connection!"
@@ -264,6 +271,11 @@ def get_public():
 def latency_check():
     result = []
     return render_template('latency.html', result=result)
+
+@app.route('/contact_me/',methods=['GET', 'POST'])
+def contact_me():
+    result = []
+    return render_template('contact_me.html', result=result)
 
 
 ####This app is for testing only not linking to the main webpage
