@@ -19,14 +19,19 @@ img{
     padding-right: 45px;
 }
 body {
-    background-image: url("/static/img/background.jpg");
-    position: absolute;
+    /*background-image: url("/static/img/background.jpg");*/
+    background-color: black;
+    background-image: radial-gradient(rgba(33, 104, 234, 0.75), black 120%);
+    /*position: absolute;*/
     top: 10px;
     left: 16px;
     max-width: 100%;
-    height: auto;
-    font-family: monospace;
+    height: 100vh;
+    /*font-family: monospace;*/
     padding: 20px;
+    color: white;
+    font: 1.1rem Inconsolata, monospace;
+    text-shadow: 0 0 5px #C8C8C8;
 }
 
 .tool-button {

@@ -9,6 +9,8 @@ from flask import Flask, request, render_template_string, render_template
 import os
 import paramiko
 import socket
+import io
+import pandas as pd
 ###################################
 # ####### to update into site #######
 # cd ~/mysite
@@ -276,6 +278,8 @@ def latency_check():
 def contact_me():
     result = []
     return render_template('contact_me.html', result=result)
+
+
 
 
 ####This app is for testing only not linking to the main webpage
