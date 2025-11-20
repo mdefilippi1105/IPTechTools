@@ -31,9 +31,38 @@ form {
 }
 
 body {
-    background-image: url("/static/img/background.jpg");
-    font-family: sans-serif;
+    /*background-image: url("/static/img/background.jpg");*/
+    background-color: black;
+    background-image: radial-gradient(rgba(33, 104, 234, 0.75), black 120%);
+    /*position: absolute;*/
+    top: 10px;
+    left: 16px;
+    max-width: 100%;
+    height: 100vh;
+    /*font-family: monospace;*/
     padding: 20px;
+    color: white;
+    font-family: "Chicago", monospace;
+    /*font: 1.1rem Inconsolata, monospace;*/
+    text-shadow: 0 0 5px #C8C8C8;
+}
+body::before {
+    content: "";
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    pointer-events: none;   /* <-- IMPORTANT: let clicks go through */
+    z-index: 9999;
+    height: 100vh;
+    background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+    );
 }
 
 /*THESE ARE THE OUTPUTS CREATED BY THE COMMANDS RUN ON THE PAGE*/
@@ -74,18 +103,19 @@ body {
     font-family: monospace;
 }
 .tool-button {
-    font-size: 15px;
+    font-family: monospace;
+    font-size: 12px;
     border: azure;
     border-radius: 15px;
-    background-color: #10637c;
+    background-color: #174292;
     text-decoration-color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
-    display: block;
-    margin: 10px;
+    display: inline-block;
+    margin: 5px;
+    transition: transform 150ms ease, background 200ms ease;
 }
 
 .tool-button:hover {

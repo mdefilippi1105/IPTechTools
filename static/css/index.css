@@ -30,8 +30,27 @@ body {
     /*font-family: monospace;*/
     padding: 20px;
     color: white;
-    font: 1.1rem Inconsolata, monospace;
+    font-family: "Chicago", monospace;
+    /*font: 1.1rem Inconsolata, monospace;*/
     text-shadow: 0 0 5px #C8C8C8;
+}
+body::before {
+    content: "";
+    position: fixed;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    pointer-events: none;   /* <-- IMPORTANT: let clicks go through */
+    z-index: 9999;
+    height: 100vh;
+    background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+    );
 }
 
 .tool-button {
@@ -39,7 +58,7 @@ body {
     font-size: 12px;
     border: azure;
     border-radius: 15px;
-    background-color: #0e475e;
+    background-color: #174292;
     text-decoration-color: white;
     cursor: pointer;
     color: white;
