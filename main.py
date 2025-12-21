@@ -11,6 +11,8 @@ import paramiko
 import socket
 import io
 import pandas as pd
+import dashboard
+
 ###################################
 # ####### to update into site #######
 # cd ~/mysite
@@ -233,6 +235,8 @@ def rtsp_client():
         result = f"Error running rtsp client: {e}"
     return render_template('rtsp_cam.html', result=result)
 
+
+
 #############################
 #### whats my ip? ###########
 #############################
@@ -243,8 +247,10 @@ def get_public():
         time.sleep(1)
         real_ip = request.headers.get('CF-Connecting-IP', request.remote_addr)
         public_header = request.headers.get
-        public_ip = request.headers.get("X-Forwarded-For",request.remote_addr)
+        host_platform = request.headers.get("Sec-Ch-Ua-Platform", request.remote_addr)
         user_agent = request.headers.get("User-Agent")
+        browser_engine = request.headers.get("Sec-Ch-Ua", request.remote_addr)
+
 
         parts = []
         for item, value in request.headers.items():
@@ -253,14 +259,15 @@ def get_public():
 
 
         #This is for internal inspection
-        public_output = (f"Your current IP address is {all_ip_info}. "
-                         f"\nYour currently captured platform is {user_agent}")
+        public_output = (f"Current IP address is {real_ip}. "
+                         f"\n\nCurrently captured platform is {host_platform.upper()}."
+                         f"\n\nBrowser engine is currently {browser_engine.upper()}")
 
         print(f"DEBUG ---> {public_header}")
-        print(f"DEBUG ---> {public_ip}")
         print(f"DEBUG ---> {user_agent}")
         print(f"DEBUG ---> {public_output}")
         print(f"DEBUG ---> {all_ip_info}")
+
     else:
         ####should come up with something better here
         "Please check your internet connection!"
@@ -282,11 +289,14 @@ def contact_me():
 
 
 
+
 ####This app is for testing only not linking to the main webpage
 
 @app.route('/test/',methods=['GET', 'POST'])
 def test():
-    result = []
+    radar = dashboard.show_device_type()
+    leaked_creds = dashboard.show_leaked_creds()
+    result = radar + leaked_creds
     return render_template('___test.html', result=result)
 
 if __name__ == '__main__':

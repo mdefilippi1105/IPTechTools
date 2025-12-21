@@ -1,23 +1,28 @@
 h2 {
     color: white;
     font-family: monospace;
+        font-size: 30px;
 }
 h3 {
     color: white;
+        font-size: 20px;
     font-family: monospace;
 }
 
 h4{
     color: white;
+        font-size: 20px;
     font-family: monospace;
 }
 h5{
     color: white;
+        font-size: 20px;
     font-family: monospace;
 }
 
 i {
     color: white;
+        font-size: 16px;
     font-family: monospace;
 }
 
@@ -27,14 +32,16 @@ form {
     align-items: center;
     color: white;
     width: 150%;
+        font-size: 20px;
     gap: 10px
 }
 
 body {
-    /*background-image: url("/static/img/background.jpg");*/
     background-color: black;
     background-image: radial-gradient(rgba(33, 104, 234, 0.75), black 120%);
-    /*position: absolute;*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     top: 10px;
     left: 16px;
     max-width: 100%;
@@ -43,7 +50,6 @@ body {
     padding: 20px;
     color: white;
     font-family: "Chicago", monospace;
-    /*font: 1.1rem Inconsolata, monospace;*/
     text-shadow: 0 0 5px #C8C8C8;
 }
 body::before {
@@ -94,17 +100,30 @@ body::before {
     color: white;
     font-family: monospace;
 }
+#port-form {
+    font-size: 20px;
+    color: white;
+    font-family: monospace;
+}
+
+#ip-form {
+    font-size: 20px;
+    color: white;
+    font-family: monospace;
+}
 #port-output {
     color: white;
     font-family: monospace;
 }
+
+
 #latency-output {
     color: white;
     font-family: monospace;
 }
 .tool-button {
     font-family: monospace;
-    font-size: 12px;
+    font-size: 20px;
     border: azure;
     border-radius: 15px;
     background-color: #174292;

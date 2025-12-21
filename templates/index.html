@@ -3,18 +3,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Mike DeFilippi"
+    <meta name="author" content="Mike DeFilippi">
     <meta name = "description" content = "This page contains
     tools for IT professionals designed to run lean and mean">
     <title>IP Browser tools</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/index.css') }}">
-    <link rel="icon" href="{{url_for('static', filename='img/smiley.png') }}">
+
     <script src="{{ url_for('static', filename='js/animate_button.js')}}"></script>
 
 </head>
 <body>
 <h2> Welcome to IP Tools </h2>
 <img src="{{url_for('static', filename='img/smiley.png') }}" alt="smiley" width="128" height="128">
+    <link rel="icon" href="{{url_for('static', filename='img/smiley.png') }}">
 <h5> By Mike D </h5>
 <a href="/ping" class="tool-button">Server Connection Test</a>
 <a href="/geo" class="tool-button">Geolocator Tool</a>

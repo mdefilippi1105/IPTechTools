@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 
+##This is used for showing devices listed by OS connected to the internet
 def show_device_type():
     cf_api_url = "https://api.cloudflare.com/client/v4"
     params = "dateRange=7d&format=json"
@@ -28,6 +29,7 @@ def show_device_type():
     plt.close()
     return plt
 
+# graph to show leaked credentials
 def show_leaked_creds():
     my_token = "9t45-iLA1U9fQVD7X2ATuzThQ2sDEBPwkyDRwY-y"
     cf_api_url = "https://api.cloudflare.com/client/v4"
@@ -65,5 +67,38 @@ def show_leaked_creds():
     plt.close()
     return plt
 
-show_device_type()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
