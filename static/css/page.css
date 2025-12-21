@@ -95,23 +95,43 @@ input {
 }
 #geo-display {
     font-size: 18px;
-    color: white;
+    line-height: 2;
+    color: #e6f1ff;
+    padding: 12px;
+    border-radius: 10px;
     font-family: monospace;
+    white-space: pre-wrap;   /* wraps on mobile */
+    word-break: break-word;
 }
 #mac-display {
     font-size: 18px;
-    color: white;
+    line-height: 2;
+    color: #e6f1ff;
+    padding: 12px;
+    border-radius: 10px;
     font-family: monospace;
+    white-space: pre-wrap;   /* wraps on mobile */
+    word-break: break-word;
 }
 #deep-display {
     font-size: 18px;
-    color: white;
+    line-height: 2;
+    color: #e6f1ff;
+    padding: 12px;
+    border-radius: 10px;
     font-family: monospace;
+    white-space: pre-wrap;   /* wraps on mobile */
+    word-break: break-word;
 }
 #public-output {
     font-size: 18px;
-    color: white;
+    line-height: 2;
+    color: #e6f1ff;
+    padding: 12px;
+    border-radius: 10px;
     font-family: monospace;
+    white-space: pre-wrap;   /* wraps on mobile */
+    word-break: break-word;
 }
 #port-form {
     font-size: 20px;
