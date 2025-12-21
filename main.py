@@ -251,18 +251,15 @@ def get_public():
         user_agent = request.headers.get("User-Agent")
         browser_engine = request.headers.get("Sec-Ch-Ua", request.remote_addr)
 
-
         parts = []
         for item, value in request.headers.items():
             parts.append(f"{item}: {value}")
             all_ip_info = "\n".join(parts)
 
-
         #This is for internal inspection
         public_output = (f"Current IP address is {real_ip}. "
                          f"\n\nCurrently captured platform is {host_platform.upper()}."
                          f"\n\nBrowser engine is currently {browser_engine.upper()}")
-
         print(f"DEBUG ---> {public_header}")
         print(f"DEBUG ---> {user_agent}")
         print(f"DEBUG ---> {public_output}")
@@ -285,10 +282,6 @@ def latency_check():
 def contact_me():
     result = []
     return render_template('contact_me.html', result=result)
-
-
-
-
 
 ####This app is for testing only not linking to the main webpage
 

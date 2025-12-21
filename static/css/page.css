@@ -1,7 +1,7 @@
 h2 {
     color: white;
     font-family: monospace;
-        font-size: 30px;
+    font-size: 30px;
 }
 h3 {
     color: white;
@@ -63,40 +63,53 @@ body::before {
     z-index: 9999;
     height: 100vh;
     background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.15) 1px,
-    transparent 1px,
-    transparent 2px
-    );
+        0deg,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2) 2px,
+        transparent 2px,
+        transparent 4px
+        );
 }
 
 /*THESE ARE THE OUTPUTS CREATED BY THE COMMANDS RUN ON THE PAGE*/
 #json-display {
+    font-size: 18px;
     color:white;
     font-family: monospace;
 }
 #ping-output {
+
+    font-size: 18px;
     color: white;
     font-family: monospace;
 }
+input {
+    width: 200px;
+    height: 30px;
+    font-size: 18px;
+}
 #trace-output {
+    font-size: 18px;
     color: white;
     font-family: monospace;
 }
 #geo-display {
+    font-size: 18px;
     color: white;
     font-family: monospace;
 }
 #mac-display {
+    font-size: 18px;
     color: white;
     font-family: monospace;
 }
 #deep-display {
+    font-size: 18px;
     color: white;
     font-family: monospace;
 }
 #public-output {
+    font-size: 18px;
     color: white;
     font-family: monospace;
 }
@@ -112,12 +125,14 @@ body::before {
     font-family: monospace;
 }
 #port-output {
+    font-size: 18px;
     color: white;
     font-family: monospace;
 }
 
 
 #latency-output {
+    font-size: 18px;
     color: white;
     font-family: monospace;
 }
@@ -128,15 +143,18 @@ body::before {
     border-radius: 15px;
     background-color: #174292;
     text-decoration-color: white;
+    text-shadow:
+        0 0 2px rgba(200, 220, 255, 0.9),
+        0 0 6px rgba(120, 170, 255, 0.8),
+        0 0 12px rgba(60, 120, 255, 0.6);
     cursor: pointer;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
     display: inline-block;
     margin: 5px;
-    transition: transform 150ms ease, background 200ms ease;
+    transition: transform 150ms ease, background 200ms ease, box-shadow 200ms ease;;
 }
-
 .tool-button:hover {
     background: #2ec7ea
 }
@@ -144,7 +162,6 @@ body::before {
     outline: 2px solid #99c7ff; outline-offset: 2px;
 }
 .tool-button.flash {
-    transform: translateY(-5px) scale(3.03);
+    transform: translateY(-2px) scale(1.03);
     box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-    transition: transform 0.2s ease, box-shadow 0.2s ease
 }
