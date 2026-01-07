@@ -27,8 +27,7 @@ async function clientPing(ev){
         clearTimeout(timer);
         document.getElementById("latency-output").textContent = "Host unreachable";
         hideSpinner();
-    }
-    finally {
+    } finally {
         hideSpinner();
-        }
+    }
 }

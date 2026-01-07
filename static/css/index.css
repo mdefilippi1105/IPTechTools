@@ -1,9 +1,40 @@
-img {
-    width: 250px;
-    height: auto;
-        padding-left: 20px;
-    padding-right: 45px;
+/*.dash-rotator-container {*/
+/*    display: flex;*/
+/*    justify-content: flex-end; !* right side *!*/
+/*    align-items: center;       !* vertical center *!*/
+/*    width: 100%;*/
+/*    height: 200px;             !* adjust to taste *!*/
+/*}*/
+.hero-stack {
+  display: flex;
+  flex-direction: column;   /* title -> row -> buttons */
+  gap: 20px;
 }
+
+/* row with smiley + chart */
+.dash-row {
+  display: flex;
+  align-items: center;      /* vertical align within the row */
+  gap: 100px;
+}
+#dash-rotator {
+    transition: opacity 250ms ease-in-out;
+    max-width: 420px;
+    border-radius: 12px;
+}
+.smiley {
+  width: 90px;              /* tweak */
+  height: auto;
+}
+
+
+
+/*.smiley-container {*/
+/*    height: auto;*/
+/*    width: auto;*/
+/*    padding-left: 20px;*/
+/*    padding-right: 45px;*/
+/*}*/
 h2 {
     color: white;
     font-family: monospace;

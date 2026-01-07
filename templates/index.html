@@ -9,14 +9,30 @@
     <title>IP Browser tools</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/index.css') }}">
 
+    <div class = "hero-stack">
+
+        <div class="hero-title">
+            <h1>Welcome to IP Tools</h1>
+            <p>By Mike D</p>
+        </div>
+
+        <div class="dash-row">
+            <img class="smiley" src="{{url_for('static', filename='img/smiley.png') }}" alt="smiley" >
+
+            <img id = "dash-rotator"
+                src="{{ url_for('static', filename='charts/cred_graph.png') }}"
+                alt="Dashboard graph">
+        </div>
+
+            <link rel="icon" href="{{url_for('static', filename='img/smiley.png') }}">
+        </img>
+    </div>
+
     <script src="{{ url_for('static', filename='js/animate_button.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js')}}"></script>
 
 </head>
 <body>
-<h2> Welcome to IP Tools </h2>
-<img src="{{url_for('static', filename='img/smiley.png') }}" alt="smiley" width="128" height="128">
-    <link rel="icon" href="{{url_for('static', filename='img/smiley.png') }}">
-<h5> By Mike D </h5>
 <a href="/ping" class="tool-button">Server Connection Test</a>
 <a href="/geo" class="tool-button">Geolocator Tool</a>
 <a href="/trace" class="tool-button">Trace Route</a>
