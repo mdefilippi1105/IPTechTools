@@ -15,8 +15,9 @@
 
 
 <form method="POST" action="/route_table" onsubmit="showSpinner();return true;">
-    <input name ="port" id ="port-form" type = "number" min="1" max="65535" placeholder ="Port required">
     <input name="host" id ="ip-form" placeholder="Host/IP (optional)">
+    <input name ="port" id ="port-form" type = "number" min="1" max="65535" placeholder ="Port required">
+
     <button type ="submit" class="tool-button">Check</button>
     <div id = "spinner" class= "loader"></div>
 <br>

@@ -134,8 +134,9 @@ input {
     word-break: break-word;
 }
 #port-form {
+    border: 2px solid #f5f8f5;
     font-size: 20px;
-    color: white;
+    color: black;
     font-family: monospace;
 }
 .ip{
@@ -147,14 +148,20 @@ input {
 }
 
 #ip-form {
+    border: 2px solid #f5f8f5;
     font-size: 20px;
-    color: white;
+    color: black;
     font-family: monospace;
 }
 #port-output {
-    font-size: 18px;
-    color: white;
+    font-size: 25px;
+    line-height: 2;
+    color: #e6f1ff;
+
+    border-radius: 10px;
     font-family: monospace;
+    white-space: pre-wrap;   /* wraps on mobile */
+    word-break: break-word;
 }
 
 

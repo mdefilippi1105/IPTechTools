@@ -1,4 +1,4 @@
-######### Created on July 9th 9:50pm ################
+######### Created on July 9th 2025 9:50pm ################
 import json
 import platform
 import html
@@ -33,13 +33,8 @@ import utils.dashboard as dash
 # align loading bar - done
 # add what's my ip? - done
 # clean up results aka clean up JSON
-# add rtsp
-# sort netstat results to show vulnerable ports
-## could elaborate on this and map it out in pandas
-# background jpg loads blurry sometimes
-# add some widgets - weather, clock
-# cache purge button - cloudfare api
-# test SMTP
+# try ripe API for network statistics
+# generate more charts
 
 app = Flask(__name__)
 
@@ -291,8 +286,6 @@ def test():
     return render_template('___test.html', result=result)
 
 if __name__ == '__main__':
-    dash.delete_old_charts()
-    dash.generate_all()
     app.run(debug=True)
 
 
