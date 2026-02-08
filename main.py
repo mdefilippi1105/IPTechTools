@@ -11,7 +11,9 @@ import paramiko
 import socket
 import io
 import pandas as pd
-import dashboard
+import utils.dashboard as dash
+
+
 
 ###################################
 # ####### to update into site #######
@@ -57,9 +59,7 @@ def ping():
                     ping_cmd = f"ping -n 8 {ip}"
                 else:
                     ping_cmd = f"ping -c 8 {ip}"
-
                 result = os.popen(ping_cmd).read()
-
             except Exception as e:
                 result = f"Error running ping {e}"
 
@@ -139,7 +139,7 @@ def deep_search():
                 pass
             else:
                 ip = request.form.get('ip_deep_lookup')
-                ip_stack_api_key = str('24265a352dc98765b3905690b8cdf92b')
+                ip_stack_api_key = str('BLANK')
                 ip_stack_api_url = f'https://api.ipstack.com/{ip}?access_key={ip_stack_api_key}'
                 response = requests.get(ip_stack_api_url)
                 result = response.json()
@@ -287,10 +287,13 @@ def contact_me():
 
 @app.route('/test/',methods=['GET', 'POST'])
 def test():
-    radar = dashboard.show_device_type()
-    leaked_creds = dashboard.show_leaked_creds()
-    result = radar + leaked_creds
+    result = ""
     return render_template('___test.html', result=result)
 
 if __name__ == '__main__':
+    dash.delete_old_charts()
+    dash.generate_all()
     app.run(debug=True)
+
+
+

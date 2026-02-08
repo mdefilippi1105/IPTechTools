@@ -9,39 +9,43 @@
     <title>IP Browser tools</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/index.css') }}">
 
-    <div class = "hero-stack">
+    <body>
 
         <div class="hero-title">
             <h1>Welcome to IP Tools</h1>
             <p>By Mike D</p>
         </div>
 
-        <div class="dash-row">
-            <img class="smiley" src="{{url_for('static', filename='img/smiley.png') }}" alt="smiley" >
+    <div class = "main-row">
 
+        <div class="button-menu">
+        <img class="smiley" src="{{url_for('static', filename='img/smiley.png') }}" alt="smiley" >
+        <a href="/ping" class="tool-button">Server Connection Test</a>
+        <a href="/geo" class="tool-button">Geolocator Tool</a>
+        <a href="/trace" class="tool-button">Trace Route</a>
+        <a href="/mac" class="tool-button">MAC Lookup</a>
+        <a href="/latency" class="tool-button">Latency Checker</a>
+        <a href="/deepgeo" class="tool-button">Deep Search</a>
+        <a href="/route_table" class="tool-button">Port Checker</a>
+        <a href="/public" class="tool-button">Grab Public IP</a>
+        <a href="/contact_me" class="tool-button">Contact me!</a>
+        </div>
+
+        <div class="dash-row">
             <img id = "dash-rotator"
                 src="{{ url_for('static', filename='charts/cred_graph.png') }}"
                 alt="Dashboard graph">
         </div>
 
-            <link rel="icon" href="{{url_for('static', filename='img/smiley.png') }}">
-        </img>
+
     </div>
 
     <script src="{{ url_for('static', filename='js/animate_button.js')}}"></script>
     <script src="{{ url_for('static', filename='js/dashboard.js')}}"></script>
 
 </head>
-<body>
-<a href="/ping" class="tool-button">Server Connection Test</a>
-<a href="/geo" class="tool-button">Geolocator Tool</a>
-<a href="/trace" class="tool-button">Trace Route</a>
-<a href="/mac" class="tool-button">MAC Lookup</a>
-<a href="/latency" class="tool-button">Latency Checker</a>
-<a href="/deepgeo" class="tool-button">Deep Search</a>
-<a href="/route_table" class="tool-button">Port Checker</a>
-<a href="/public" class="tool-button">Grab Public IP</a>
-<a href="/contact_me" class="tool-button">Contact me!</a>
+
+
 
 
 </body>
@@ -51,95 +55,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{#<a href="/ping">#}
-{#    <button style="font-size: 24px;#}
-{#                   border: none;#}
-{#                   border-radius: 8px;#}
-{#                   background-color: #FFD4CC;#}
-{#                   cursor: pointer;#}
-{#                   transition: background-color 0.3s;#}
-{#     			   color: #CE5937;#}
-{#    	           padding: 4px 4px;#}
-{#                   #}
-{#     ">#}
-{#    Ping#}
-{#  </button>#}
-{#    #}
-{#<a href="/geo">#}
-{#    <button style="font-size: 24px;#}
-{#                   border: none;#}
-{#                   border-radius: 8px;#}
-{#                   background-color: #FFD4CC;#}
-{#                   cursor: pointer;#}
-{#                   transition: background-color 0.3s;#}
-{#     			   color: #CE5937; #}
-{#    	           padding: 4px 4px;#}
-{#     ">#}
-{#    Geolocator</button>#}
-{#    #}
-{#<a href="/trace">#}
-{#    <button style="font-size: 24px;#}
-{#                   border: none;#}
-{#                   border-radius: 8px;#}
-{#                   background-color: #FFD4CC;#}
-{#                   cursor: pointer;#}
-{#                   transition: background-color 0.3s;#}
-{#     			   color: #CE5937;#}
-{#    	           padding: 4px 4px;#}
-{#     ">#}
-{#    Trace Route</button>#}
-{#    #}
-{#<a href="/mac">#}
-{#    <button style="font-size: 24px;#}
-{#                   border: none;#}
-{#                   border-radius: 8px;#}
-{#                   background-color: #FFD4CC;#}
-{#                   cursor: pointer;#}
-{#                   transition: background-color 0.3s;#}
-{#     			   color: #CE5937;#}
-{#    	           padding: 4px 4px;#}
-{#     ">#}
-{#    MAC Lookup</button>#}
-{#<a href="/deepgeo">#}
-{#    <button style="font-size: 24px;#}
-{#                   border: none;#}
-{#                   border-radius: 8px;#}
-{#                   background-color: #FFD4CC;#}
-{#                   cursor: pointer;#}
-{#                   transition: background-color 0.3s;#}
-{#     			   color: #CE5937;#}
-{#    	           padding: 4px 4px;#}
-{#                   #}
-{#     ">#}
-{#    Deep Search#}
-{#  </button>#}
-{##}
-{#<a href="/route_table">#}
-{#    <button style="font-size: 24px;#}
-{#                   border: none;#}
-{#                   border-radius: 8px;#}
-{#                   background-color: #FFD4CC;#}
-{#                   cursor: pointer;#}
-{#                   transition: background-color 0.3s;#}
-{#     			   color: #CE5937;#}
-{#    	           padding: 4px 4px;#}
-{#  ">#}
-{#    Route Table#}
-{#    </button>#}

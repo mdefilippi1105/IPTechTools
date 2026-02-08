@@ -2,36 +2,48 @@
 
 <html lang="en">
 <head>
-    <title>Contact Me</title>
-    <script src="{{ url_for('static', filename='js/terminal.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/client_ping.js')}}"></script>
-    <script src="{{ url_for('static', filename='js/spinner.js')}}"></script>
+    <meta charset="UTF-8">
+    <meta name="author" content="Mike DeFilippi">
+    <meta name = "description" content = "Test">
+    <title>Test Tool</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/page.css') }}">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css') }}">
-    <link rel="stylesheet" href="https://unpkg.com/xterm/css/xterm.css">
-
 </head>
+
 <body>
-<h2> Contact me </h2>
-<i>Hello Friends!</i>
+            <h1>Chinese Device Detector</h1>
 
-<form id="latency-form" onsubmit="clientPing(event); return false;">
-    Enter IP Address: <input name="latency-input" >
-    <button type="submit"  class="tool-button">Test Latency</button>
-    {#spinner bar stuff. this creates the spinner div to be defined in css#}
-        <div id = "spinner" class= "loader"></div>
+    <script src="{{ url_for('static', filename='js/animate_button.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js')}}"></script>
+
+    <form method="POST" action="/rtsp_client/" onsubmit="showSpinner(); return true;">
+    <label>Field 1</label><br>
+    <input name ="field1" required> <br><br>
+
+    <label>Field 2</label><br>
+    <input name ="field2" required> <br><br>
+
+    <label>Password</label><br>
+    <input name="password-field" type="password" required><br><br>
+
+    <input type="submit" class="tool-button" value=" Connect and Run ">
 </form>
+{% if result %}
+    <pre>{{ result }}</pre>
+{% endif %}
 
-<div class = "wrap">
-    <div id = "terminal" aria-label="Terminal">
+
+
+
+<div class="button-menu">
+    <a href="     " class="tool-button">Server Connection Test</a>
+
 </div>
 
 
-
-<pre id ="latency-output"></pre>
-
-{% if result %}
-{{ result }}
-{% endif %}
 </body>
 </html>
+
+
+
+
+

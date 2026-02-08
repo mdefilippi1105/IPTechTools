@@ -138,6 +138,13 @@ input {
     color: white;
     font-family: monospace;
 }
+.ip{
+
+    border: 2px solid #f5f8f5;
+    font-size: 20px;
+    color: black;
+    font-family: monospace;
+}
 
 #ip-form {
     font-size: 20px;

@@ -9,6 +9,8 @@ const images = [
 let index = 0;
 const img = document.getElementById("dash-rotator");
 
+img.src = images[0];
+
 //start a repeating timer -> every 5 seconds rerun code
 setInterval(() => {
     //instantly make image transparent
