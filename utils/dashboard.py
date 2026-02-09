@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import io
 import requests
 from pathlib import Path
@@ -7,8 +10,7 @@ import matplotlib.patheffects as pe
 from django.utils.termcolors import foreground
 import os
 
-from dotenv import load_dotenv
-load_dotenv()
+
 
 
 
@@ -131,12 +133,13 @@ def show_traffic():
         label.set_path_effects(glow_text)
 
     plt.title("Global HTTP Traffic This Week,",
+              axis='both',
               path_effects=glow,
               pad=12,
               color="white"
               )
     plt.xlabel("Time (UTC)",path_effects=glow_text, color="white")
-    plt.ylabel("Global HTTP Traffic",path_effects=glow_text, color="white")
+    plt.ylabel("Global HTTP Traffic",path_effects=glow_text, color="white",labelcolor="white")
     plt.tight_layout()
     out_file = charts_folder / "traffic_graph.png"
     plt.savefig(out_file, transparent=True)

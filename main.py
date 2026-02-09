@@ -1,4 +1,7 @@
 ######### Created on July 9th 2025 9:50pm ################
+from dotenv import load_dotenv
+load_dotenv()
+
 import json
 import platform
 import html
@@ -16,8 +19,7 @@ import utils.dashboard as dash
 
 
 
-from dotenv import load_dotenv
-load_dotenv()
+
 
 
 
