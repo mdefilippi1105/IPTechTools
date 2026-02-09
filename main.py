@@ -5,6 +5,7 @@ import html
 import time
 import cv2
 import requests
+from django.db.models.functions import NullIf
 from flask import Flask, request, render_template_string, render_template
 import os
 import paramiko
@@ -12,6 +13,12 @@ import socket
 import io
 import pandas as pd
 import utils.dashboard as dash
+
+
+
+from dotenv import load_dotenv
+load_dotenv()
+
 
 
 
@@ -37,6 +44,9 @@ import utils.dashboard as dash
 # generate more charts
 
 app = Flask(__name__)
+
+MAC_ADDR_API_KEY = os.environ["MAC_ADDR_API_KEY"]
+IP_STACK_API_KEY = os.environ["IP_STACK_API_KEY"]
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
@@ -64,6 +74,7 @@ def ping():
 def geo():
     result = ""
     if request.method =='POST':
+        time.sleep(1)
         ip = request.form.get('ip_lookup')
         response = requests.get(f"http://ip-api.com/json/{ip}")
         result = response.json()
@@ -134,8 +145,7 @@ def deep_search():
                 pass
             else:
                 ip = request.form.get('ip_deep_lookup')
-                ip_stack_api_key = str('BLANK')
-                ip_stack_api_url = f'https://api.ipstack.com/{ip}?access_key={ip_stack_api_key}'
+                ip_stack_api_url = f'https://api.ipstack.com/{ip}?access_key={IP_STACK_API_KEY}'
                 response = requests.get(ip_stack_api_url)
                 result = response.json()
                 dump = json.dumps(result, indent=4, sort_keys=True)
@@ -239,7 +249,7 @@ def rtsp_client():
 def get_public():
     public_output = None
     if request.method == 'POST':
-        time.sleep(1)
+        time.sleep(2)
         real_ip = request.headers.get('CF-Connecting-IP', request.remote_addr)
         public_header = request.headers.get
         host_platform = request.headers.get("Sec-Ch-Ua-Platform", request.remote_addr)
@@ -261,8 +271,7 @@ def get_public():
         print(f"DEBUG ---> {all_ip_info}")
 
     else:
-        ####should come up with something better here
-        "Please check your internet connection!"
+        public_output = []
     return render_template('public.html', result=public_output)
 
 

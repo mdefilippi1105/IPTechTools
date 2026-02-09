@@ -8,6 +8,8 @@
     tools for IT professionals designed to run lean and mean">
     <title>IP Browser tools</title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/index.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/smiley.ico') }}">
+
 
     <body>
 
@@ -20,13 +22,15 @@
 
         <div class="button-menu">
         <img class="smiley" src="{{url_for('static', filename='img/smiley.png') }}" alt="smiley" >
+        <a href="/route_table" class="tool-button">Port Checker</a>
         <a href="/ping" class="tool-button">Server Connection Test</a>
+        <a href="/mac" class="tool-button">MAC Lookup</a>
         <a href="/geo" class="tool-button">Geolocator Tool</a>
         <a href="/trace" class="tool-button">Trace Route</a>
-        <a href="/mac" class="tool-button">MAC Lookup</a>
+
         <a href="/latency" class="tool-button">Latency Checker</a>
         <a href="/deepgeo" class="tool-button">Deep Search</a>
-        <a href="/route_table" class="tool-button">Port Checker</a>
+
         <a href="/public" class="tool-button">Grab Public IP</a>
         <a href="/contact_me" class="tool-button">Contact me!</a>
         </div>

@@ -7,6 +7,14 @@ import matplotlib.patheffects as pe
 from django.utils.termcolors import foreground
 import os
 
+from dotenv import load_dotenv
+load_dotenv()
+
+
+
+CF_TOKEN = os.environ["CF_TOKEN"]
+
+
 ###########################################################################################################
 ##################### effects variables ###################################################################
 ###########################################################################################################
@@ -45,10 +53,9 @@ def show_device_type():
         "dimension": "os",
         "format": "csv"
     }
-    my_token = "9t45-iLA1U9fQVD7X2ATuzThQ2sDEBPwkyDRwY-y"
 
     # this is the request URL made comprised of url + dimension + parameters
-    r_device_type = requests.get(f"{cf_api_url}/radar/http/summary/{dimension}", headers={"Authorization": f"Bearer {my_token}"}, params = params)
+    r_device_type = requests.get(f"{cf_api_url}/radar/http/summary/{dimension}", headers={"Authorization": f"Bearer {CF_TOKEN}"}, params = params)
     print(r_device_type.text[:500])
     df_device = pd.read_csv(io.StringIO(r_device_type.text))
     plt.style.use("seaborn-v0_8")
@@ -93,9 +100,8 @@ def show_traffic():
         "dateRange": "7d",
         "format": "csv"
     }
-    my_token = "9t45-iLA1U9fQVD7X2ATuzThQ2sDEBPwkyDRwY-y"
     # this is the request URL made comprised of url + dimension + parameters
-    r_continent = requests.get(f"{cf_api_url}/radar/http/{dimension}", headers={"Authorization": f"Bearer {my_token}"}, params = params)
+    r_continent = requests.get(f"{cf_api_url}/radar/http/{dimension}", headers={"Authorization": f"Bearer {CF_TOKEN}"}, params = params)
 
     # read csv file
     df_traffic = pd.read_csv(io.StringIO(r_continent.text))
@@ -139,17 +145,13 @@ def show_traffic():
 
 # graph to show leaked credentials
 def show_leaked_creds():
-
-
-
-    my_token = "9t45-iLA1U9fQVD7X2ATuzThQ2sDEBPwkyDRwY-y"
     cf_api_url = "https://api.cloudflare.com/client/v4"
     params = {
         "dateRange" : "7d", # 7days
         "format" : "csv"
     }
     r_creds = requests.get(f"{cf_api_url}/radar/leaked_credential_checks/timeseries_groups/compromised",
-                     params=params, headers={"Authorization": f"Bearer {my_token}"})
+                     params=params, headers={"Authorization": f"Bearer {CF_TOKEN}"})
     print(r_creds.text[:500])
 
     ## this is how you take the csv text and pipe it into a
@@ -203,14 +205,14 @@ def show_leaked_creds():
 
 def show_trending_domains():
 
-    my_token = "9t45-iLA1U9fQVD7X2ATuzThQ2sDEBPwkyDRwY-y"
+
     cf_api_url = "https://api.cloudflare.com/client/v4"
     params = {
         "dateRange" : "7d", # 7days
         "format" : "csv",
     }
     r_trends = requests.get(f"{cf_api_url}/radar/ranking/top",
-                     params=params, headers={"Authorization": f"Bearer {my_token}"})
+                     params=params, headers={"Authorization": f"Bearer {CF_TOKEN}"})
     print(r_trends.text[:500])
 
     ## this is how you take the csv text and pipe it into a

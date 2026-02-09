@@ -9,7 +9,6 @@ import shodan
 
 # Use the Censys API docs in upcoming charts
 def censys_test():
-    my_token = "censys_Z4vjFho9_DHbhFgsA2GTy62buQ9hmd4AY"
 
     try:
         results = shodan_api.search('apache')
@@ -35,5 +34,3 @@ def test_graph():
     plt.ylabel("Y Label values are shown here", fontdict=font2)
     plt.grid(color = 'blue', linestyle = '--', linewidth = 0.5)
     plt.show()
-
-def show_censys():
