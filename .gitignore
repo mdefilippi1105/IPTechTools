@@ -1,0 +1,22 @@
+# created by virtualenv automatically
+
+# secrets
+.env
+
+# virtual env
+.venv/
+
+# python junk
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+
+# mac
+.DS_Store
+
+#charts dont need to be uploaded
+static/charts/
+
+
