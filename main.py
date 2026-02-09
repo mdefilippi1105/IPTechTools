@@ -47,8 +47,8 @@ import utils.dashboard as dash
 
 app = Flask(__name__)
 
-MAC_ADDR_API_KEY = os.environ["MAC_ADDR_API_KEY"]
-IP_STACK_API_KEY = os.environ["IP_STACK_API_KEY"]
+MAC_ADDR_API_KEY = os.getenv("MAC_ADDR_API_KEY")
+IP_STACK_API_KEY = os.getenv("IP_STACK_API_KEY")
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
