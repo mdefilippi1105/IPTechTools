@@ -7,7 +7,6 @@ from pathlib import Path
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patheffects as pe
-from django.utils.termcolors import foreground
 import os
 
 
