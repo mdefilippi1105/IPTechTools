@@ -45,6 +45,11 @@ import utils.dashboard as dash
 # try ripe API for network statistics
 # generate more charts
 
+############### IMPORTANT ####################
+########### STORE KEYS IN WSGI FILE ##########
+### LOCALLY, STORE KEYS IN ENV/GITIGNORE #####
+##############################################
+
 app = Flask(__name__)
 
 MAC_ADDR_API_KEY = os.getenv("MAC_ADDR_API_KEY")
