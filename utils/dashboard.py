@@ -143,8 +143,7 @@ def show_traffic():
         legend=False)
 
     ##Color the text
-    plt.tick_params(
-        axis='both',  # x, y, or both
+    plt.tick_params(  # x, y, or both
         labelsize=12,  # font size
         labelcolor="white",
         color = "white"
@@ -157,7 +156,6 @@ def show_traffic():
         label.set_path_effects(glow_text)
 
     plt.title("Global HTTP Traffic This Week,",
-              axis='both',
               path_effects=glow,
               pad=12,
               color="white"
@@ -213,8 +211,7 @@ def show_leaked_creds():
     plt.ylabel("Y-axis Label")
 
     ##Color the text
-    plt.tick_params(
-        axis='both',  # x, y, or both
+    plt.tick_params(  # x, y, or both
         labelsize=12,  # font size
         labelcolor="white",
         color = "white"
@@ -286,8 +283,7 @@ def show_trending_domains():
     plt.ylabel("Domain")
 
     ##Color the text
-    plt.tick_params(
-        axis='both',  # x, y, or both
+    plt.tick_params(  # x, y, or both
         labelsize=12,  # font size
         labelcolor="white",
         color = "white"
