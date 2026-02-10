@@ -64,7 +64,14 @@ def show_device_type():
         raise RuntimeError("CF_TOKEN missing in environment (set it in WSGI).")
 
     df_device = pd.read_csv(io.StringIO(r_device_type.text))
-    plt.style.use("seaborn-v0_8")
+    try:
+        plt.style.use("seaborn-v0_8")
+    except OSError:
+        try:
+            plt.style.use("seaborn")
+        except OSError:
+            plt.style.use("default")
+
     df_device.T.plot(kind="bar", legend=False,)
 
     ##Color the text
@@ -118,7 +125,14 @@ def show_traffic():
 
     df_traffic["Serie_0 timestamps"] = pd.to_datetime(df_traffic["Serie_0 timestamps"])
     df_traffic = df_traffic.sort_values("Serie_0 timestamps")
-    plt.style.use("seaborn-v0_8")
+    try:
+        plt.style.use("seaborn-v0_8")
+    except OSError:
+        try:
+            plt.style.use("seaborn")
+        except OSError:
+            plt.style.use("default")
+
     df_traffic.plot(
         x = "Serie_0 timestamps",
         y = "Serie_0 values",
@@ -178,7 +192,14 @@ def show_leaked_creds():
 
     #give me the first 30 rows of df_cred iloc = integer location
     df_slice = df_cred.iloc[0:30]
-    plt.style.use("seaborn-v0_8")
+    try:
+        plt.style.use("seaborn-v0_8")
+    except OSError:
+        try:
+            plt.style.use("seaborn")
+        except OSError:
+            plt.style.use("default")
+
     plt.figure(figsize=(10, 5), dpi=120)
     plt.scatter(df_slice[x_column1], df_slice[y_column1])
     plt.scatter(df_slice[x_column2], df_slice[y_column2])
@@ -235,7 +256,14 @@ def show_trending_domains():
     ## Pandas dataframe
     df_trend= pd.read_csv(io.StringIO(r_trends.text))
 
-    plt.style.use("seaborn-v0_8")
+    try:
+        plt.style.use("seaborn-v0_8")
+    except OSError:
+        try:
+            plt.style.use("seaborn")
+        except OSError:
+            plt.style.use("default")
+
     plt.figure(figsize=(10, 5), dpi=120)
     fig, ax = plt.subplots(figsize=(10, 5), dpi=120)
 
