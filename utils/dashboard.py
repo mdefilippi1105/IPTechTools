@@ -161,7 +161,7 @@ def show_traffic():
               color="white"
               )
     plt.xlabel("Time (UTC)",path_effects=glow_text, color="white")
-    plt.ylabel("Global HTTP Traffic",path_effects=glow_text, color="white",labelcolor="white")
+    plt.ylabel("Global HTTP Traffic",path_effects=glow_text, color="white")
     plt.tight_layout()
     out_file = charts_folder / "traffic_graph.png"
     plt.savefig(out_file, transparent=True)
