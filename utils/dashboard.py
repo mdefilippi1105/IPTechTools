@@ -56,12 +56,13 @@ def show_device_type():
         "format": "csv"
     }
 
+    if not CF_TOKEN:
+        raise RuntimeError("CF_TOKEN missing in environment (set it in WSGI).")
+
     # this is the request URL made comprised of url + dimension + parameters
     r_device_type = requests.get(f"{cf_api_url}/radar/http/summary/{dimension}", headers={"Authorization": f"Bearer {CF_TOKEN}"}, params = params)
     print(r_device_type.text[:500])
 
-    if not CF_TOKEN:
-        raise RuntimeError("CF_TOKEN missing in environment (set it in WSGI).")
 
     df_device = pd.read_csv(io.StringIO(r_device_type.text))
     try:
@@ -75,8 +76,7 @@ def show_device_type():
     df_device.T.plot(kind="bar", legend=False,)
 
     ##Color the text
-    plt.tick_params(
-        axis='both',  # x, y, or both
+    plt.tick_params( # x, y, or both
         labelsize=12,  # font size
         labelcolor="white",
         color = "white"
@@ -113,15 +113,19 @@ def show_traffic():
         "dateRange": "7d",
         "format": "csv"
     }
+
+    if not CF_TOKEN:
+        raise RuntimeError("CF_TOKEN missing in environment (set it in WSGI).")
+
     # this is the request URL made comprised of url + dimension + parameters
     r_continent = requests.get(f"{cf_api_url}/radar/http/{dimension}", headers={"Authorization": f"Bearer {CF_TOKEN}"}, params = params)
+
 
     # read csv file
     df_traffic = pd.read_csv(io.StringIO(r_continent.text))
     print(r_continent.text[:500])
 
-    if not CF_TOKEN:
-        raise RuntimeError("CF_TOKEN missing in environment (set it in WSGI).")
+
 
     df_traffic["Serie_0 timestamps"] = pd.to_datetime(df_traffic["Serie_0 timestamps"])
     df_traffic = df_traffic.sort_values("Serie_0 timestamps")
@@ -174,12 +178,15 @@ def show_leaked_creds():
         "dateRange" : "7d", # 7days
         "format" : "csv"
     }
+
+    if not CF_TOKEN:
+        raise RuntimeError("CF_TOKEN missing in environment (set it in WSGI).")
+
     r_creds = requests.get(f"{cf_api_url}/radar/leaked_credential_checks/timeseries_groups/compromised",
                      params=params, headers={"Authorization": f"Bearer {CF_TOKEN}"})
     print(r_creds.text[:500])
 
-    if not CF_TOKEN:
-        raise RuntimeError("CF_TOKEN missing in environment (set it in WSGI).")
+
 
     ## this is how you take the csv text and pipe it into a
     ## Pandas dataframe
@@ -245,12 +252,14 @@ def show_trending_domains():
         "dateRange" : "7d", # 7days
         "format" : "csv",
     }
+
+    if not CF_TOKEN:
+        raise RuntimeError("CF_TOKEN missing in environment (set it in WSGI).")
+
     r_trends = requests.get(f"{cf_api_url}/radar/ranking/top",
                      params=params, headers={"Authorization": f"Bearer {CF_TOKEN}"})
     print(r_trends.text[:500])
 
-    if not CF_TOKEN:
-        raise RuntimeError("CF_TOKEN missing in environment (set it in WSGI).")
 
     ## this is how you take the csv text and pipe it into a
     ## Pandas dataframe
