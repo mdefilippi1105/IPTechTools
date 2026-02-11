@@ -17,6 +17,7 @@ import io
 import pandas as pd
 import utils.dashboard as dash
 import ipaddress
+import subprocess
 
 
 ###################################
@@ -98,12 +99,18 @@ def trace():
         trace_ip = request.form.get('ip_lookup')
         if trace_ip:
             try:
-                if platform.system() =="Windows":
-                    trace_command = f"tracert {trace_ip}"
+                if platform.system() == "Windows":
+                    trace_result = subprocess.run(
+                        ["tracert", trace_ip],
+                        capture_output=True,
+                        text=True
+                    ).stdout
                 else:
-                    trace_command = f"traceroute {trace_ip}"
-                trace_result = os.popen(trace_command).read()
-                print(f"DEBUG-->{trace_result}")
+                    trace_result = subprocess.run(
+                        ["traceroute", trace_ip],
+                        capture_output=True,
+                        text=True
+                    ).stdout
 
             except Exception as e:
                 trace_result = f"Error running trace: {e}"
