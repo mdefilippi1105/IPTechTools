@@ -16,12 +16,7 @@ import socket
 import io
 import pandas as pd
 import utils.dashboard as dash
-
-
-
-
-
-
+import ipaddress
 
 
 ###################################
@@ -63,17 +58,19 @@ def index():
 @app.route('/ping', methods = ['GET', 'POST'])
 def ping():
     result = None #result is blank first
-    if request.method =='POST':
+    if request.method == "POST":
         ip = request.form.get('ip')
         if ip:
             try:
+                ipaddress.ip_address(ip)
                 if platform.system() == "Windows":
                     ping_cmd = f"ping -n 8 {ip}"
                 else:
                     ping_cmd = f"ping -c 8 {ip}"
-                result = os.popen(ping_cmd).read()
-            except Exception as e:
-                result = f"Error running ping {e}"
+                    result = os.popen(ping_cmd).read()
+
+            except ValueError:
+                result = "Invalid IP Address"
 
     return render_template('ping.html', result=result)
 
