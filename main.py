@@ -25,6 +25,7 @@ import subprocess
 # cd ~/mysite
 # source ~/venvs/myapp/bin/activate
 # git pull
+# removed generate_charts_py due to security issues
 ####################################
 
 ################################
