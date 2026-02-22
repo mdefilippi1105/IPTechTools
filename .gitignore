@@ -19,4 +19,7 @@ __pycache__/
 #charts dont need to be uploaded
 static/charts/
 
+#generate charts job
+generate_charts_job.py
+
 
