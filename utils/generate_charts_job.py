@@ -1,7 +1,7 @@
 import os
 import utils.dashboard as dashboard
 
-os.environ["CF_TOKEN"] = "9t45-iLA1U9fQVD7X2ATuzThQ2sDEBPwkyDRwY-y"
+os.environ["CF_TOKEN"] = ""
 
 
 def generate_all ():
